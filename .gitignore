@@ -1,0 +1,6 @@
+frontend/node_modules/
+frontend/dist/
+servicioRAG/venv/
+servicioRAG/__pycache__/
+servicioRAG/*.pyc
+servicioRAG/.env
