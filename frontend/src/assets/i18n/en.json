@@ -1,0 +1,47 @@
+{
+  "MENU": {
+    "SOLICITAR": "Request Course",
+    "MIS_CURSOS": "My Previous Courses",
+    "LOGOUT": "Logout"
+  },
+  "LOGIN": {
+    "TITULO": "Personal Area",
+    "EMAIL": "Corporate Email:",
+    "PASSWORD": "Password:",
+    "ENTRAR": "Enter",
+    "ERROR_CREDENTIALS": "⚠️ Incorrect credentials. Please try again."
+  },
+  "CURSOS_ANTERIORES": {
+    "TITULO": "Previous Courses",
+    "NO_HAY": "No courses saved yet.",
+    "ERROR": "❌ Error retrieving courses.",
+    "USUARIO_NO_AUT": "⚠️ User not authenticated."
+  },
+  "SOLICITAR": {
+    "TITULO": "Request Course",
+    "TEMA": "Topic:",
+    "NECESIDADES": "Special Needs:",
+    "FORMATO": "Format:",
+    "TEXTO": "Text",
+    "AUDIO": "Audio",
+    "VIDEO": "Video",
+    "GENERAR": "Generate Course",
+    "CARGANDO": "Generating course, please wait...",
+    "GENERATING_VIDEO": "Generating video, please wait...",
+    "CURSO_GENERADO_TEXTO": "✅ Course generated successfully",
+    "CURSO_GENERADO_AUDIO": "✅ Course generated in audio format",
+    "GUARDAR": "Save course",
+    "ERROR_GENERAR": "There was an error generating the course. Please try again.",
+    "ERROR_GUARDAR": "❌ Error saving the course",
+    "ERROR_PARSE_USER": "⚠️ Could not load user data.",
+    "ERROR_NO_USER": "⚠️ User not authenticated.",
+    "GUARDAR_SUCCESS": "✅ Course saved successfully"
+  },
+  "DETALLE_CURSO": {
+    "FORMATO": "Format:",
+    "NECESIDADES": "Needs:",
+    "ERROR_NO_AUT": "⚠️ User not authenticated",
+    "ERROR_CARGAR": "❌ Could not load the course",
+    "ERROR_ID": "❌ Invalid course ID"
+  }
+}

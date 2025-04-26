@@ -1,0 +1,47 @@
+{
+  "MENU": {
+    "SOLICITAR": "Solicitar curso",
+    "MIS_CURSOS": "Mis cursos anteriores",
+    "LOGOUT": "Cerrar sesión"
+  },
+  "LOGIN": {
+    "TITULO": "Área Personal",
+    "EMAIL": "Correo corporativo:",
+    "PASSWORD": "Contraseña:",
+    "ENTRAR": "Entrar",
+    "ERROR_CREDENTIALS": "⚠️ Credenciales incorrectas. Inténtalo de nuevo."
+  },
+  "CURSOS_ANTERIORES": {
+    "TITULO": "Cursos Anteriores",
+    "NO_HAY": "No hay cursos guardados aún.",
+    "ERROR": "❌ Error al recuperar cursos.",
+    "USUARIO_NO_AUT": "⚠️ Usuario no autenticado."
+  },
+  "SOLICITAR": {
+    "TITULO": "Solicitar Curso",
+    "TEMA": "Tema:",
+    "NECESIDADES": "Necesidades especiales:",
+    "FORMATO": "Formato:",
+    "TEXTO": "Texto",
+    "AUDIO": "Audio",
+    "VIDEO": "Vídeo",
+    "GENERAR": "Generar Curso",
+    "CARGANDO": "Generando curso, por favor espera...",
+    "GENERATING_VIDEO": "Generando vídeo, por favor espera...",
+    "CURSO_GENERADO_TEXTO": "✅ Curso generado correctamente",
+    "CURSO_GENERADO_AUDIO": "✅ Curso generado en formato audio",
+    "GUARDAR": "Guardar curso",
+    "ERROR_GENERAR": "Hubo un error al generar el curso. Inténtalo de nuevo.",
+    "ERROR_GUARDAR": "❌ Error al guardar el curso",
+    "ERROR_PARSE_USER": "⚠️ No se pudo cargar datos de usuario.",
+    "ERROR_NO_USER": "⚠️ Usuario no autenticado.",
+    "GUARDAR_SUCCESS": "✅ Curso guardado correctamente"
+  },
+  "DETALLE_CURSO": {
+    "FORMATO": "Formato:",
+    "NECESIDADES": "Necesidades:",
+    "ERROR_NO_AUT": "⚠️ Usuario no autenticado",
+    "ERROR_CARGAR": "❌ No se pudo cargar el curso",
+    "ERROR_ID": "❌ ID de curso no válido"
+  }
+}

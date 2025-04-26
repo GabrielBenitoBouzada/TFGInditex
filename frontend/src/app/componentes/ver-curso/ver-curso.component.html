@@ -1,0 +1,4 @@
+<div class="curso-wrapper" *ngIf="curso as c">
+  <h1 class="titulo">{{ c.tema }}</h1>
+  <div [innerHTML]="c.contenido" class="contenido"></div>
+</div>

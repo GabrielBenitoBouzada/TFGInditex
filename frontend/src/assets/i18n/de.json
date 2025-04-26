@@ -1,0 +1,47 @@
+{
+  "MENU": {
+    "SOLICITAR": "Kurs anfordern",
+    "MIS_CURSOS": "Meine bisherigen Kurse",
+    "LOGOUT": "Abmelden"
+  },
+  "LOGIN": {
+    "TITULO": "Persönlicher Bereich",
+    "EMAIL": "Firmen-E-Mail:",
+    "PASSWORD": "Passwort:",
+    "ENTRAR": "Anmelden",
+    "ERROR_CREDENTIALS": "⚠️ Ungültige Anmeldedaten. Bitte erneut versuchen."
+  },
+  "CURSOS_ANTERIORES": {
+    "TITULO": "Frühere Kurse",
+    "NO_HAY": "Noch keine Kurse gespeichert.",
+    "ERROR": "❌ Fehler beim Abrufen der Kurse.",
+    "USUARIO_NO_AUT": "⚠️ Benutzer nicht authentifiziert."
+  },
+  "SOLICITAR": {
+    "TITULO": "Kurs anfordern",
+    "TEMA": "Thema:",
+    "NECESIDADES": "Spezielle Anforderungen:",
+    "FORMATO": "Format:",
+    "TEXTO": "Text",
+    "AUDIO": "Audio",
+    "VIDEO": "Video",
+    "GENERAR": "Kurs generieren",
+    "CARGANDO": "Kurs wird generiert, bitte warten...",
+    "GENERATING_VIDEO": "Video wird generiert, bitte warten...",
+    "CURSO_GENERADO_TEXTO": "✅ Kurs erfolgreich generiert",
+    "CURSO_GENERADO_AUDIO": "✅ Kurs im Audio-Format generiert",
+    "GUARDAR": "Kurs speichern",
+    "ERROR_GENERAR": "Fehler bei der Kurserstellung. Bitte erneut versuchen.",
+    "ERROR_GUARDAR": "❌ Fehler beim Speichern des Kurses",
+    "ERROR_PARSE_USER": "⚠️ Benutzerdaten konnten nicht geladen werden.",
+    "ERROR_NO_USER": "⚠️ Benutzer nicht authentifiziert.",
+    "GUARDAR_SUCCESS": "✅ Kurs erfolgreich gespeichert"
+  },
+  "DETALLE_CURSO": {
+    "FORMATO": "Format:",
+    "NECESIDADES": "Anforderungen:",
+    "ERROR_NO_AUT": "⚠️ Benutzer nicht authentifiziert",
+    "ERROR_CARGAR": "❌ Kurs konnte nicht geladen werden",
+    "ERROR_ID": "❌ Ungültige Kurs-ID"
+  }
+}

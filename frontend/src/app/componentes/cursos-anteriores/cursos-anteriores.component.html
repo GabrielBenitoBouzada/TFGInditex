@@ -1,0 +1,16 @@
+<!-- src/app/componentes/cursos-anteriores/cursos-anteriores.component.html -->
+<h2>{{ 'CURSOS_ANTERIORES.TITULO' | translate }}</h2>
+
+<p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+
+<div *ngFor="let curso of cursos" class="card" (click)="verCurso(curso)">
+  <h3>{{ curso.tema }}</h3>
+  <p>
+    <strong>{{ 'DETALLE_CURSO.FORMATO' | translate }}</strong>
+    {{ curso.formato }}
+  </p>
+  <p>
+    <strong>{{ 'DETALLE_CURSO.NECESIDADES' | translate }}</strong>
+    {{ curso.necesidades }}
+  </p>
+</div>

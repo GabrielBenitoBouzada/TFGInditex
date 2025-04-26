@@ -1,0 +1,31 @@
+<div class="login-container">
+  <img
+    src="assets/logo-uni2.png"
+    alt="{{ 'LOGIN.TITULO' | translate }}"
+    class="logo-uni"
+  />
+
+  <div class="login-card">
+    <h2>{{ 'LOGIN.TITULO' | translate }}</h2>
+
+    <form [formGroup]="formulario" (ngSubmit)="login()">
+      <label for="email">{{ 'LOGIN.EMAIL' | translate }}</label>
+      <input
+        id="email"
+        formControlName="email"
+        type="email"
+        required
+      />
+
+      <label for="password">{{ 'LOGIN.PASSWORD' | translate }}</label>
+      <input
+        id="password"
+        formControlName="password"
+        type="password"
+        required
+      />
+
+      <button type="submit">{{ 'LOGIN.ENTRAR' | translate }}</button>
+    </form>
+  </div>
+</div>

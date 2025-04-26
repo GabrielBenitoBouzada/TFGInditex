@@ -1,0 +1,17 @@
+<div *ngIf="error" class="error">
+  {{ error }}
+</div>
+
+<div *ngIf="curso" class="curso-detalle">
+  <h2>{{ curso.tema }}</h2>
+  <p>
+    <strong>{{ 'DETALLE_CURSO.FORMATO' | translate }}</strong>
+    {{ curso.formato }}
+  </p>
+  <p>
+    <strong>{{ 'DETALLE_CURSO.NECESIDADES' | translate }}</strong>
+    {{ curso.necesidades }}
+  </p>
+  <hr />
+  <div [innerHTML]="curso.contenido"></div>
+</div>

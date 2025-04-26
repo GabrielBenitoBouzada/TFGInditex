@@ -1,0 +1,47 @@
+{
+  "MENU": {
+    "SOLICITAR": "Demander un cours",
+    "MIS_CURSOS": "Mes cours précédents",
+    "LOGOUT": "Déconnexion"
+  },
+  "LOGIN": {
+    "TITULO": "Espace personnel",
+    "EMAIL": "Email professionnel :",
+    "PASSWORD": "Mot de passe :",
+    "ENTRAR": "Se connecter",
+    "ERROR_CREDENTIALS": "⚠️ Identifiants incorrects. Veuillez réessayer."
+  },
+  "CURSOS_ANTERIORES": {
+    "TITULO": "Cours précédents",
+    "NO_HAY": "Aucun cours enregistré pour le moment.",
+    "ERROR": "❌ Erreur lors de la récupération des cours.",
+    "USUARIO_NO_AUT": "⚠️ Utilisateur non authentifié."
+  },
+  "SOLICITAR": {
+    "TITULO": "Demander un cours",
+    "TEMA": "Sujet :",
+    "NECESIDADES": "Besoins spécifiques :",
+    "FORMATO": "Format :",
+    "TEXTO": "Texte",
+    "AUDIO": "Audio",
+    "VIDEO": "Vidéo",
+    "GENERAR": "Générer le cours",
+    "CARGANDO": "Génération du cours, veuillez patienter...",
+    "GENERATING_VIDEO": "Génération de la vidéo, veuillez patienter...",
+    "CURSO_GENERADO_TEXTO": "✅ Cours généré avec succès",
+    "CURSO_GENERADO_AUDIO": "✅ Cours généré au format audio",
+    "GUARDAR": "Enregistrer le cours",
+    "ERROR_GENERAR": "Une erreur est survenue lors de la génération du cours. Veuillez réessayer.",
+    "ERROR_GUARDAR": "❌ Erreur lors de l'enregistrement du cours",
+    "ERROR_PARSE_USER": "⚠️ Impossible de charger les données utilisateur.",
+    "ERROR_NO_USER": "⚠️ Utilisateur non authentifié.",
+    "GUARDAR_SUCCESS": "✅ Cours enregistré avec succès"
+  },
+  "DETALLE_CURSO": {
+    "FORMATO": "Format :",
+    "NECESIDADES": "Besoins :",
+    "ERROR_NO_AUT": "⚠️ Utilisateur non authentifié",
+    "ERROR_CARGAR": "❌ Impossible de charger le cours",
+    "ERROR_ID": "❌ ID de cours invalide"
+  }
+}

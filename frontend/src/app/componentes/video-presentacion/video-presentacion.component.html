@@ -1,0 +1,32 @@
+<form [formGroup]="form" class="video-container">
+    <h2>{{ 'VIDEO.TITULO' | translate }}</h2>
+  
+    <div class="form-group">
+      <label>{{ 'VIDEO.AVATAR' | translate }}</label>
+      <!-- Sólo formControlName, sin [formControl] extra -->
+      <select formControlName="avatar">
+        <option value="grace">Grace</option>
+        <option value="john">John</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label>{{ 'VIDEO.SCRIPT' | translate }}</label>
+      <textarea
+        formControlName="script"
+        rows="6"
+      ></textarea>
+    </div>
+  
+    <button type="button" (click)="generar()" [disabled]="loading">
+      {{ loading
+         ? ('VIDEO.GENERATING' | translate)
+         : ('VIDEO.GENERATE'   | translate) }}
+    </button>
+  </form>
+  
+  <div class="preview" *ngIf="videoUrl">
+    <h3>{{ 'VIDEO.PREVIEW' | translate }}</h3>
+    <video [src]="videoUrl" controls></video>
+  </div>
+  

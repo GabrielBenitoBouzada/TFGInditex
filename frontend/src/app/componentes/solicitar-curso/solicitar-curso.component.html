@@ -1,0 +1,47 @@
+<div class="contenedor">
+  <h1>{{ 'SOLICITAR.TITULO' | translate }}</h1>
+
+  <form [formGroup]="formulario" class="formulario">
+    <label>{{ 'SOLICITAR.TEMA' | translate }}</label>
+    <input formControlName="tema" />
+
+    <label>{{ 'SOLICITAR.NECESIDADES' | translate }}</label>
+    <input formControlName="necesidades" />
+
+    <label>{{ 'SOLICITAR.FORMATO' | translate }}</label>
+    <select formControlName="formato">
+      <option value="texto">{{ 'SOLICITAR.TEXTO' | translate }}</option>
+      <option value="audio">{{ 'SOLICITAR.AUDIO' | translate }}</option>
+      <option value="video">{{ 'SOLICITAR.VIDEO' | translate }}</option>
+    </select>
+
+    <button type="button" (click)="generarCurso()">
+      {{ 'SOLICITAR.GENERAR' | translate }}
+    </button>
+  </form>
+
+  <div class="cargando" *ngIf="loadingVideo">
+    <img src="assets/loader.gif" alt="Cargando..." />
+    <p>
+      {{ formatoSeleccionado==='video'
+         ? ('SOLICITAR.GENERATING_VIDEO' | translate)
+         : ('SOLICITAR.CARGANDO'       | translate) }}
+    </p>
+  </div>
+
+  <div class="resultado" *ngIf="cursoGenerado && !loadingVideo">
+    <div *ngIf="formatoSeleccionado==='texto'" [innerHTML]="cursoContenido"></div>
+
+    <audio *ngIf="formatoSeleccionado==='audio'" controls
+           [src]="'data:audio/mp3;base64,' + audioBase64">
+    </audio>
+
+    <div *ngIf="formatoSeleccionado==='video'">
+      <video *ngIf="videoUrl" [src]="videoUrl" controls class="preview-video"></video>
+    </div>
+
+    <button (click)="guardarCurso()">
+      {{ 'SOLICITAR.GUARDAR' | translate }}
+    </button>
+  </div>
+</div>
