@@ -1,6 +1,30 @@
+# ANGULAR
 frontend/node_modules/
 frontend/dist/
+frontend/.angular/
+
+# PYTHON / FASTAPI
 servicioRAG/venv/
 servicioRAG/__pycache__/
 servicioRAG/*.pyc
 servicioRAG/.env
+servicioRAG/.mypy_cache/
+servicioRAG/.pytest_cache/
+
+# SYSTEM FILES
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# LOGS / TEMP
+*.log
+*.tmp
+
+# TEST COVERAGE
+coverage/
+*.cover
+htmlcov/
+.cache/
