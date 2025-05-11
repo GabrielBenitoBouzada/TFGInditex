@@ -5,7 +5,7 @@ import { MenuSuperiorComponent }    from './componentes/menu-superior/menu-super
 import { SolicitarCursoComponent }  from './componentes/solicitar-curso/solicitar-curso.component';
 import { CursosAnterioresComponent} from './componentes/cursos-anteriores/cursos-anteriores.component';
 import { DetalleCursoComponent }    from './componentes/detalle-curso/detalle-curso.component';
-import { VerCursoComponent }        from './componentes/ver-curso/ver-curso.component';
+import { ConfiguracionPerfilComponent } from './componentes/configuracion-perfil/configuracion-perfil.component';
 
 export const routes: Routes = [
   { path: '', component: InicioSesionComponent },
@@ -16,7 +16,7 @@ export const routes: Routes = [
       { path: 'solicitar', component: SolicitarCursoComponent },
       { path: 'cursos',    component: CursosAnterioresComponent },
       { path: 'curso/:id', component: DetalleCursoComponent },
-      { path: 'ver-curso', component: VerCursoComponent },
+      { path: 'configuracion', component: ConfiguracionPerfilComponent }, // ← CORRECTO
       { path: '', redirectTo: 'solicitar', pathMatch: 'full' }
     ]
   },

@@ -1,32 +1,37 @@
-// src/main.ts
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent }       from './app/app.component';
+import { AppComponent } from './app/app.component';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { provideRouter }      from '@angular/router';
+import { provideRouter } from '@angular/router';
 import { importProvidersFrom } from '@angular/core';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
-import { routes }             from './app/app.routes';
+import { routes } from './app/app.routes';
 
-// ngx-translate imports
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
-import { TranslateHttpLoader }  from '@ngx-translate/http-loader';
-import { HttpClient }           from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient } from '@angular/common/http';
 
-// Factory para cargar los JSON de traducción desde assets/i18n/*.json
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+// ✅ Aplicamos accesibilidad antes de arrancar Angular
+const usuarioStr = localStorage.getItem('usuario');
+if (usuarioStr) {
+  const usuario = JSON.parse(usuarioStr);
+  const prefs = usuario.preferenciasAccesibilidad || {};
+
+  if (prefs.altoContraste) document.body.classList.add('modo-contraste');
+  if (prefs.tamanoLetra === 'grande') document.body.classList.add('letra-grande');
+  else if (prefs.tamanoLetra === 'pequeno') document.body.classList.add('letra-pequena');
+  if (prefs.lenguajeSencillo) document.body.classList.add('lenguaje-sencillo');
+}
+
 bootstrapApplication(AppComponent, {
   providers: [
-    // HTTP client
     provideHttpClient(withInterceptorsFromDi()),
-    // Router
     provideRouter(routes),
-    // Animations (si las usas)
     importProvidersFrom(BrowserAnimationsModule),
     provideAnimations(),
-    // ngx-translate
     importProvidersFrom(
       TranslateModule.forRoot({
         loader: {
@@ -39,16 +44,19 @@ bootstrapApplication(AppComponent, {
   ]
 })
 .then(appRef => {
-  // Una vez arranca la app, inicializamos el servicio de traducción
   const translate = appRef.injector.get(TranslateService);
+  translate.addLangs(['es', 'en', 'fr', 'it', 'de']);
 
-  // Registramos los idiomas disponibles
-  translate.addLangs(['es','en','fr','it','de']);
-  // Idioma por defecto
-  translate.setDefaultLang('es');
+  let lang = 'es';
+  const usuarioStr = localStorage.getItem('usuario');
+  if (usuarioStr) {
+    const usuario = JSON.parse(usuarioStr);
+    lang = usuario.idioma || usuario.idiomaPredeterminado || localStorage.getItem('idioma') || 'es';
+  } else {
+    lang = localStorage.getItem('idioma') || 'es';
+  }
 
-  // Cargamos el idioma guardado (o 'es' si no hay ninguno)
-  const lang = localStorage.getItem('idioma') || 'es';
+  translate.setDefaultLang(lang);
   translate.use(lang);
 })
 .catch(err => console.error(err));

@@ -1,16 +1,41 @@
-<!-- src/app/componentes/cursos-anteriores/cursos-anteriores.component.html -->
-<h2>{{ 'CURSOS_ANTERIORES.TITULO' | translate }}</h2>
+<div class="cursos-header">
+  <h2>{{ 'CURSOS_ANTERIORES.TITULO' | translate }}</h2>
+
+  <div class="buscador-container">
+    <input
+      type="text"
+      [(ngModel)]="terminoBusqueda"
+      (input)="filtrarCursos()"
+      [placeholder]="'CURSOS_ANTERIORES.BUSCAR' | translate"
+    />
+    <img src="assets/lupa.png" alt="Buscar" class="icono-busqueda" />
+  </div>
+</div>
 
 <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
 
-<div *ngFor="let curso of cursos" class="card" (click)="verCurso(curso)">
-  <h3>{{ curso.tema }}</h3>
-  <p>
-    <strong>{{ 'DETALLE_CURSO.FORMATO' | translate }}</strong>
-    {{ curso.formato }}
-  </p>
-  <p>
-    <strong>{{ 'DETALLE_CURSO.NECESIDADES' | translate }}</strong>
-    {{ curso.necesidades }}
-  </p>
+<div class="grid-cursos">
+  <div *ngFor="let curso of cursos" class="curso-card" (click)="verCurso(curso)">
+    <img
+      *ngIf="curso.imagenCurso"
+      class="imagen-curso"
+      [src]="curso.imagenCurso"
+      alt="Imagen del curso"
+    />
+
+    <div class="contenido-curso">
+      <h3 class="titulo">{{ curso.tituloCurso || curso.tema }}</h3>
+
+      <button class="btn-share" (click)="compartirCurso(curso); $event.stopPropagation()">
+        <img src="assets/compartir.png" alt="Compartir" />
+      </button>
+
+      <p><strong>{{ 'DETALLE_CURSO.NECESIDADES' | translate }}:</strong> {{ curso.necesidades }}</p>
+
+      <div class="likes">
+        <img src="assets/cuantoLike.webp" alt="Likes" />
+        <span>{{ curso.popularity || 0 }}</span>
+      </div>
+    </div>
+  </div>
 </div>

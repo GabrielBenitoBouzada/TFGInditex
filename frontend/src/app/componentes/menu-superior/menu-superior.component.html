@@ -1,19 +1,24 @@
 <nav class="menu">
   <div class="izquierda">
-    <img
-      src="assets/logo-uni2.png"
-      alt="Logo universidad"
-      class="logo"
-    />
+    <img src="assets/logo-uni2.png" alt="Logo universidad" class="logo" />
 
     <ul class="menu-links">
       <li>
-        <a routerLink="/home/solicitar" routerLinkActive="activo">
+        <a 
+          routerLink="/home/solicitar" 
+          routerLinkActive="activo" 
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="menu-link"
+        >
           {{ 'MENU.SOLICITAR' | translate }}
         </a>
       </li>
       <li>
-        <a routerLink="/home/cursos" routerLinkActive="activo">
+        <a 
+          routerLink="/home/cursos" 
+          routerLinkActive="activo" 
+          class="menu-link"
+        >
           {{ 'MENU.MIS_CURSOS' | translate }}
         </a>
       </li>
@@ -21,40 +26,28 @@
   </div>
 
   <div class="derecha">
-    <div class="idiomas">
-      <img
-        src="assets/banderas/bandera-españa.webp"
-        alt="ES"
-        (click)="cambiarIdioma('es')"
-      />
-      <img
-        src="assets/banderas/bandera-inglesa.webp"
-        alt="EN"
-        (click)="cambiarIdioma('en')"
-      />
-      <img
-        src="assets/banderas/bandera-francesa.png"
-        alt="FR"
-        (click)="cambiarIdioma('fr')"
-      />
-      <img
-        src="assets/banderas/bandera-italiana.png"
-        alt="IT"
-        (click)="cambiarIdioma('it')"
-      />
-      <img
-        src="assets/banderas/bandera-alemania.png"
-        alt="DE"
-        (click)="cambiarIdioma('de')"
-      />
+    <button class="hamburguesa" 
+            [class.abierto]="mostrarDropdown" 
+            (click)="toggleDropdown($event)">
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+
+    <div class="dropdown-perfil" *ngIf="mostrarDropdown">
+      <a routerLink="/home" class="dropdown-item">
+        <img src="assets/ITX.svg" alt="Mi Espacio" class="dropdown-icon" />
+        {{ 'MENU.MI_ESPACIO' | translate }}
+      </a>
+      <a routerLink="/home/configuracion" class="dropdown-item">
+        <img src="assets/settings.png" alt="Configuración" class="dropdown-icon" />
+        {{ 'MENU.CONFIGURACION' | translate }}
+      </a>
+      <button class="logout-btn" (click)="logout()">
+        <img src="assets/logout.png" alt="Logout" class="logout-icon" />
+        {{ 'MENU.LOGOUT' | translate }}
+      </button>
     </div>
-    <img
-      src="assets/logout.png"
-      alt="{{ 'MENU.LOGOUT' | translate }}"
-      title="{{ 'MENU.LOGOUT' | translate }}"
-      class="logout"
-      (click)="logout()"
-    />
   </div>
 </nav>
 

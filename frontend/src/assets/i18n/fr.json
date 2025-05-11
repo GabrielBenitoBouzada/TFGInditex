@@ -2,20 +2,23 @@
   "MENU": {
     "SOLICITAR": "Demander un cours",
     "MIS_CURSOS": "Mes cours précédents",
-    "LOGOUT": "Déconnexion"
+    "MI_ESPACIO": "Mon espace",
+    "CONFIGURACION": "Paramètres",
+    "LOGOUT": "Se déconnecter"
   },
   "LOGIN": {
     "TITULO": "Espace personnel",
     "EMAIL": "Email professionnel :",
     "PASSWORD": "Mot de passe :",
-    "ENTRAR": "Se connecter",
+    "ENTRAR": "Entrer",
     "ERROR_CREDENTIALS": "⚠️ Identifiants incorrects. Veuillez réessayer."
   },
   "CURSOS_ANTERIORES": {
     "TITULO": "Cours précédents",
-    "NO_HAY": "Aucun cours enregistré pour le moment.",
+    "NO_HAY": "Aucun cours enregistré pour l’instant.",
     "ERROR": "❌ Erreur lors de la récupération des cours.",
-    "USUARIO_NO_AUT": "⚠️ Utilisateur non authentifié."
+    "USUARIO_NO_AUT": "⚠️ Utilisateur non authentifié.",
+    "BUSCAR": "Rechercher des cours..."
   },
   "SOLICITAR": {
     "TITULO": "Demander un cours",
@@ -31,17 +34,43 @@
     "CURSO_GENERADO_TEXTO": "✅ Cours généré avec succès",
     "CURSO_GENERADO_AUDIO": "✅ Cours généré au format audio",
     "GUARDAR": "Enregistrer le cours",
-    "ERROR_GENERAR": "Une erreur est survenue lors de la génération du cours. Veuillez réessayer.",
-    "ERROR_GUARDAR": "❌ Erreur lors de l'enregistrement du cours",
-    "ERROR_PARSE_USER": "⚠️ Impossible de charger les données utilisateur.",
+    "GUARDAR_ANIMADO": "Enregistrement du cours...",
+    "GUARDAR_COMPLETADO": "✅ Cours enregistré avec succès",
+    "ERROR_GENERAR": "Une erreur s’est produite lors de la génération. Veuillez réessayer.",
+    "ERROR_GUARDAR": "❌ Erreur lors de l’enregistrement du cours",
+    "ERROR_PARSE_USER": "⚠️ Impossible de charger les données de l’utilisateur.",
     "ERROR_NO_USER": "⚠️ Utilisateur non authentifié.",
-    "GUARDAR_SUCCESS": "✅ Cours enregistré avec succès"
+    "GUARDAR_SUCCESS": "Cours enregistré avec succès"
   },
   "DETALLE_CURSO": {
     "FORMATO": "Format :",
     "NECESIDADES": "Besoins :",
     "ERROR_NO_AUT": "⚠️ Utilisateur non authentifié",
-    "ERROR_CARGAR": "❌ Impossible de charger le cours",
-    "ERROR_ID": "❌ ID de cours invalide"
+    "ERROR_CARGAR": "❌ Échec du chargement du cours",
+    "ERROR_ID": "❌ ID de cours non valide",
+    "GUARDAR_OK": "Cours enregistré avec succès",
+    "GUARDAR_ERR": "❌ Erreur lors de l’enregistrement",
+    "ERROR_LIKE": "❌ Erreur lors de l’attribution du like",
+    "GUARDAR_RECOMENDADO": "Enregistrer le cours",
+    "REGENERAR": "Régénérer le cours",
+    "TRANSCRIPCION": "Voir la transcription",
+    "OCULTAR_TRANSCRIPCION": "Masquer la transcription"
+  },
+  "RECS": {
+    "NO_HAY": "Aucun cours recommandé.",
+    "TITULO": "Recommandés"
+  },
+  "CONFIGURACION": {
+    "IDIOMA": "Langue préférée",
+    "LENGUAJE_SENCILLO": "Langage simplifié",
+    "ALTO_CONTRASTE": "Contraste élevé",
+    "TAMANO_LETRA": "Taille de police",
+    "PEQUENO": "Petit",
+    "NORMAL": "Normal",
+    "GRANDE": "Grand",
+    "GUARDAR": "Enregistrer les modifications",
+    "CARGA_ERROR": "❌ Impossible de charger les paramètres utilisateur.",
+    "GUARDADO_OK": "✅ Modifications enregistrées avec succès.",
+    "GUARDADO_ERR": "❌ Erreur lors de l’enregistrement du profil."
   }
 }

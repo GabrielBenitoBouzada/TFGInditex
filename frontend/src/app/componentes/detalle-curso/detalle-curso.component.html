@@ -1,17 +1,64 @@
-<div *ngIf="error" class="error">
-  {{ error }}
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div *ngIf="cargando" class="loader-container">
+  <img src="assets/loader.gif" alt="Cargando..." class="loader" />
 </div>
 
-<div *ngIf="curso" class="curso-detalle">
-  <h2>{{ curso.tema }}</h2>
-  <p>
-    <strong>{{ 'DETALLE_CURSO.FORMATO' | translate }}</strong>
-    {{ curso.formato }}
+<div *ngIf="!cargando && curso" class="curso-detalle">
+  <div class="titulo-con-botones">
+    <h2 class="titulo-curso">{{ curso.tituloCurso || curso.tema }}</h2>
+
+    <div class="acciones-iconos">
+      <button class="btn-escuchar" (click)="toggleLectura()" title="Escuchar curso">
+        <img [src]="hablando ? 'assets/pausa.png' : 'assets/audio.png'" alt="Escuchar" class="icono-audio" />
+      </button>
+
+      <button class="btn-like" (click)="darLike()" title="Me gusta" [disabled]="yaLeDioLike">
+        <img [src]="yaLeDioLike ? 'assets/tick.png' : 'assets/like.png'" alt="Like" class="icono-like" />
+      </button>
+
+      <div class="contador-likes" *ngIf="curso.popularity !== undefined">
+        <img src="assets/cuantoLike.webp" alt="Icono likes" class="icono-cuanto-like" />
+        <span class="numero-likes">{{ curso.popularity }}</span>
+      </div>
+    </div>
+  </div>
+
+  <p><strong>{{ 'DETALLE_CURSO.FORMATO' | translate }}</strong> {{ curso.formato }}</p>
+
+  <p *ngIf="curso.necesidades && curso.necesidades.trim() !== ''">
+    <strong>{{ 'DETALLE_CURSO.NECESIDADES' | translate }}</strong> {{ curso.necesidades }}
   </p>
-  <p>
-    <strong>{{ 'DETALLE_CURSO.NECESIDADES' | translate }}</strong>
-    {{ curso.necesidades }}
-  </p>
-  <hr />
-  <div [innerHTML]="curso.contenido"></div>
+
+  <!-- Vídeo -->
+  <div *ngIf="curso.formato === 'video' && videoUrl">
+    <video [src]="videoUrl" controls class="video-curso"></video>
+  </div>
+
+  <!-- Transcripción -->
+  <div *ngIf="curso.formato === 'video' && curso.contenido">
+    <button class="transcripcion-btn" (click)="mostrarTranscripcion = !mostrarTranscripcion">
+      {{ mostrarTranscripcion ? ('DETALLE_CURSO.OCULTAR_TRANSCRIPCION' | translate) : ('DETALLE_CURSO.TRANSCRIPCION' | translate) }}
+    </button>
+    <div *ngIf="mostrarTranscripcion" class="transcripcion-texto" [innerHTML]="cursoSanitizado"></div>
+  </div>
+
+  <!-- Contenido si no es vídeo -->
+  <div *ngIf="curso.formato !== 'video'" [innerHTML]="cursoSanitizado"></div>
+
+  <!-- Acciones -->
+  <div class="acciones" *ngIf="isRecomendado">
+    <button class="btn-guardar"
+            [disabled]="cargandoGuardar || cursoGuardado"
+            [ngClass]="{ 'loading': cargandoGuardar, 'exito': cursoGuardado }"
+            (click)="guardarCurso()">
+      <span *ngIf="cargandoGuardar" class="spinner"></span>
+      <span *ngIf="!cargandoGuardar && !cursoGuardado">{{ 'DETALLE_CURSO.GUARDAR_RECOMENDADO' | translate }}</span>
+      <span *ngIf="cursoGuardado">✔ Guardado</span>
+    </button>
+
+    <button (click)="regenerarCurso()">
+      {{ 'DETALLE_CURSO.REGENERAR' | translate }}
+    </button>
+  </div>
 </div>

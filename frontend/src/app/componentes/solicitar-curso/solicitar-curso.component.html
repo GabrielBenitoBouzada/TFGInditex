@@ -1,47 +1,74 @@
-<div class="contenedor">
-  <h1>{{ 'SOLICITAR.TITULO' | translate }}</h1>
+<div class="solicitar-recomendados-container">
+  <!-- FORMULARIO -->
+  <div class="formulario-wrapper">
+    <h1>{{ 'SOLICITAR.TITULO' | translate }}</h1>
 
-  <form [formGroup]="formulario" class="formulario">
-    <label>{{ 'SOLICITAR.TEMA' | translate }}</label>
-    <input formControlName="tema" />
+    <form [formGroup]="formulario" class="formulario">
+      <label>{{ 'SOLICITAR.TEMA' | translate }}</label>
+      <input formControlName="tema" />
 
-    <label>{{ 'SOLICITAR.NECESIDADES' | translate }}</label>
-    <input formControlName="necesidades" />
+      <label>{{ 'SOLICITAR.NECESIDADES' | translate }}</label>
+      <input formControlName="necesidades" />
 
-    <label>{{ 'SOLICITAR.FORMATO' | translate }}</label>
-    <select formControlName="formato">
-      <option value="texto">{{ 'SOLICITAR.TEXTO' | translate }}</option>
-      <option value="audio">{{ 'SOLICITAR.AUDIO' | translate }}</option>
-      <option value="video">{{ 'SOLICITAR.VIDEO' | translate }}</option>
-    </select>
+      <label>{{ 'SOLICITAR.FORMATO' | translate }}</label>
+      <select formControlName="formato">
+        <option value="texto">{{ 'SOLICITAR.TEXTO' | translate }}</option>
+        <option value="audio">{{ 'SOLICITAR.AUDIO' | translate }}</option>
+        <option value="video">{{ 'SOLICITAR.VIDEO' | translate }}</option>
+      </select>
 
-    <button type="button" (click)="generarCurso()">
-      {{ 'SOLICITAR.GENERAR' | translate }}
-    </button>
-  </form>
-
-  <div class="cargando" *ngIf="loadingVideo">
-    <img src="assets/loader.gif" alt="Cargando..." />
-    <p>
-      {{ formatoSeleccionado==='video'
-         ? ('SOLICITAR.GENERATING_VIDEO' | translate)
-         : ('SOLICITAR.CARGANDO'       | translate) }}
-    </p>
+      <button type="button" (click)="generarCurso()">
+        {{ 'SOLICITAR.GENERAR' | translate }}
+      </button>
+    </form>
   </div>
 
-  <div class="resultado" *ngIf="cursoGenerado && !loadingVideo">
-    <div *ngIf="formatoSeleccionado==='texto'" [innerHTML]="cursoContenido"></div>
-
-    <audio *ngIf="formatoSeleccionado==='audio'" controls
-           [src]="'data:audio/mp3;base64,' + audioBase64">
-    </audio>
-
-    <div *ngIf="formatoSeleccionado==='video'">
-      <video *ngIf="videoUrl" [src]="videoUrl" controls class="preview-video"></video>
+  <!-- RECOMENDADOS -->
+  <div class="recs-wrapper">
+    <div class="recs-header">
+      <img src="assets/recomendado.png" alt="Recomendado" class="recomendado-icon" />
+      <h2>{{ 'RECS.TITULO' | translate }}</h2>
     </div>
 
-    <button (click)="guardarCurso()">
-      {{ 'SOLICITAR.GUARDAR' | translate }}
-    </button>
+    <ul class="recs-list">
+      <li *ngFor="let curso of cursosRecomendados" (click)="verRecomendado(curso)" tabindex="0">
+        <strong>{{ curso.tituloCurso || curso.tema }}</strong>
+        <div class="sub">{{ curso.formato }}</div>
+      </li>
+      <li *ngIf="!cursosRecomendados.length" class="empty">
+        {{ 'RECS.NO_HAY' | translate }}
+      </li>
+    </ul>
   </div>
+</div>
+
+<!-- CARGANDO -->
+<div class="cargando" *ngIf="loadingVideo">
+  <img src="assets/loader.gif" alt="Cargando..." />
+  <p>
+    {{ formatoSeleccionado==='video'
+       ? ('SOLICITAR.GENERATING_VIDEO' | translate)
+       : ('SOLICITAR.CARGANDO' | translate) }}
+  </p>
+</div>
+
+<!-- RESULTADO -->
+<div class="resultado" *ngIf="cursoGenerado && !loadingVideo">
+  <div *ngIf="formatoSeleccionado==='texto'" class="resultado-curso" [innerHTML]="cursoContenido"></div>
+  <audio *ngIf="formatoSeleccionado==='audio'" controls [src]="'data:audio/mp3;base64,' + audioBase64"></audio>
+  <div *ngIf="formatoSeleccionado==='video'">
+    <video *ngIf="videoUrl" [src]="videoUrl" controls class="preview-video"></video>
+  </div>
+  <button class="btn-guardar" (click)="guardarCurso()">
+    {{ 'SOLICITAR.GUARDAR' | translate }}
+    <span *ngIf="cargandoGuardar" class="spinner"></span>
+  </button>
+</div>
+
+<!-- ALERTA -->
+<div *ngIf="cursoGuardado" class="alert alert-success alert-popup" role="alert">
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi me-2" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.07 0l4-4a.75.75 0 1 0-1.06-1.06L7.5 9.44 5.53 7.47a.75.75 0 0 0-1.06 1.06l2.5 2.5z"/>
+  </svg>
+  {{ 'SOLICITAR.GUARDAR_SUCCESS' | translate }}
 </div>

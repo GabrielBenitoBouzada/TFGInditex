@@ -1,47 +1,76 @@
 {
   "MENU": {
-    "SOLICITAR": "Richiedi corso",
-    "MIS_CURSOS": "I miei corsi precedenti",
-    "LOGOUT": "Disconnetti"
+    "SOLICITAR": "Solicitar curso",
+    "MIS_CURSOS": "Mis cursos anteriores",
+    "MI_ESPACIO": "Mi espacio",
+    "CONFIGURACION": "Configuración",
+    "LOGOUT": "Cerrar sesión"
   },
   "LOGIN": {
-    "TITULO": "Area personale",
-    "EMAIL": "Email aziendale:",
-    "PASSWORD": "Password:",
-    "ENTRAR": "Accedi",
-    "ERROR_CREDENTIALS": "⚠️ Credenziali non valide. Riprova."
+    "TITULO": "Área Personal",
+    "EMAIL": "Correo corporativo:",
+    "PASSWORD": "Contraseña:",
+    "ENTRAR": "Entrar",
+    "ERROR_CREDENTIALS": "⚠️ Credenciales incorrectas. Inténtalo de nuevo."
   },
   "CURSOS_ANTERIORES": {
-    "TITULO": "Corsi precedenti",
-    "NO_HAY": "Nessun corso salvato.",
-    "ERROR": "❌ Errore nel recupero dei corsi.",
-    "USUARIO_NO_AUT": "⚠️ Utente non autenticato."
+    "TITULO": "Cursos Anteriores",
+    "NO_HAY": "No hay cursos guardados aún.",
+    "ERROR": "❌ Error al recuperar cursos.",
+    "USUARIO_NO_AUT": "⚠️ Usuario no autenticado.",
+    "BUSCAR": "Buscar cursos..."
   },
   "SOLICITAR": {
-    "TITULO": "Richiedi corso",
-    "TEMA": "Argomento:",
-    "NECESIDADES": "Esigenze speciali:",
+    "TITULO": "Solicitar Curso",
+    "TEMA": "Tema:",
+    "NECESIDADES": "Necesidades especiales:",
     "FORMATO": "Formato:",
-    "TEXTO": "Testo",
+    "TEXTO": "Texto",
     "AUDIO": "Audio",
-    "VIDEO": "Video",
-    "GENERAR": "Genera corso",
-    "CARGANDO": "Generazione del corso, attendere prego...",
-    "GENERATING_VIDEO": "Generazione del video, attendere prego...",
-    "CURSO_GENERADO_TEXTO": "✅ Corso generato correttamente",
-    "CURSO_GENERADO_AUDIO": "✅ Corso generato in formato audio",
-    "GUARDAR": "Salva corso",
-    "ERROR_GENERAR": "Errore durante la generazione del corso. Riprova.",
-    "ERROR_GUARDAR": "❌ Errore durante il salvataggio del corso",
-    "ERROR_PARSE_USER": "⚠️ Impossibile caricare i dati dell'utente.",
-    "ERROR_NO_USER": "⚠️ Utente non autenticato.",
-    "GUARDAR_SUCCESS": "✅ Corso salvato correttamente"
+    "VIDEO": "Vídeo",
+    "GENERAR": "Generar Curso",
+    "CARGANDO": "Generando curso, por favor espera...",
+    "GENERATING_VIDEO": "Generando vídeo, por favor espera...",
+    "CURSO_GENERADO_TEXTO": "✅ Curso generado correctamente",
+    "CURSO_GENERADO_AUDIO": "✅ Curso generado en formato audio",
+    "GUARDAR": "Guardar curso",
+    "GUARDAR_ANIMADO": "¡Guardando curso!",
+    "GUARDAR_COMPLETADO": "✅ Curso guardado con éxito",
+    "ERROR_GENERAR": "Hubo un error al generar el curso. Inténtalo de nuevo.",
+    "ERROR_GUARDAR": "❌ Error al guardar el curso",
+    "ERROR_PARSE_USER": "⚠️ No se pudo cargar datos de usuario.",
+    "ERROR_NO_USER": "⚠️ Usuario no autenticado.",
+    "GUARDAR_SUCCESS": "Curso guardado correctamente"
   },
   "DETALLE_CURSO": {
     "FORMATO": "Formato:",
-    "NECESIDADES": "Esigenze:",
-    "ERROR_NO_AUT": "⚠️ Utente non autenticato",
-    "ERROR_CARGAR": "❌ Impossibile caricare il corso",
-    "ERROR_ID": "❌ ID corso non valido"
+    "NECESIDADES": "Necesidades:",
+    "ERROR_NO_AUT": "⚠️ Usuario no autenticado",
+    "ERROR_CARGAR": "❌ No se pudo cargar el curso",
+    "ERROR_ID": "❌ ID de curso no válido",
+    "GUARDAR_OK": "Curso guardado correctamente",
+    "GUARDAR_ERR": "❌ Error al guardar curso",
+    "ERROR_LIKE": "❌ Error al dar like",
+    "GUARDAR_RECOMENDADO": "Guardar curso",
+    "REGENERAR": "Regenerar curso",
+    "TRANSCRIPCION": "Ver transcripción",
+    "OCULTAR_TRANSCRIPCION": "Ocultar transcripción"
+  },
+  "RECS": {
+    "NO_HAY": "No hay cursos recomendados.",
+    "TITULO": "Recomendados"
+  },
+  "CONFIGURACION": {
+    "IDIOMA": "Idioma preferido",
+    "LENGUAJE_SENCILLO": "Lenguaje sencillo",
+    "ALTO_CONTRASTE": "Contraste alto",
+    "TAMANO_LETRA": "Tamaño de letra",
+    "PEQUENO": "Pequeño",
+    "NORMAL": "Normal",
+    "GRANDE": "Grande",
+    "GUARDAR": "Guardar cambios",
+    "CARGA_ERROR": "❌ No se pudo cargar la configuración del usuario.",
+    "GUARDADO_OK": "✅ Cambios guardados correctamente.",
+    "GUARDADO_ERR": "❌ Error al guardar el perfil."
   }
 }

@@ -1,3 +1,7 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
 .login-container {
   display: flex;
   flex-direction: column;
@@ -5,7 +9,7 @@
   justify-content: center;
   min-height: 100vh;
   background: #f8f9fa;
-  padding: 40px;
+  padding: 40px 20px;
 }
 
 .logo-uni {
@@ -46,6 +50,7 @@ input {
   border: 1px solid #ccc;
   background: #eef3fb;
   margin-bottom: 15px;
+  font-size: 15px;
 }
 
 button {
@@ -58,8 +63,34 @@ button {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-size: 15px;
 }
 
 button:hover {
   background-color: #005fa3;
+}
+
+/* ----------------- 🔁 Responsive ----------------- */
+@media (max-width: 500px) {
+  .login-container {
+    padding: 30px 15px;
+  }
+
+  .login-card {
+    padding: 30px 20px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .login-card h2 {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
 }

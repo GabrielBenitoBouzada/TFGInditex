@@ -1,0 +1,64 @@
+<div class="fondo-configuracion"></div>
+
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <a routerLink="/home/solicitar">{{ 'MENU.SOLICITAR' | translate }}</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      {{ 'MENU.CONFIGURACION' | translate }}
+    </li>
+  </ol>
+</nav>
+
+<div class="perfil-config-wrapper">
+  <div class="perfil-header">
+    <img src="assets/iconoProfile.webp" alt="Perfil" class="perfil-icono" />
+    <div>
+      <h2>{{ nombreUsuario }}</h2>
+      <p class="rol-subrol">{{ rol }} - {{ subrol }}</p>
+    </div>
+  </div>
+
+  <form [formGroup]="formulario" (ngSubmit)="guardar()">
+    <div class="form-group">
+      <label for="idioma">{{ 'CONFIGURACION.IDIOMA' | translate }}</label>
+      <select id="idioma" formControlName="idioma" class="form-control select-custom">
+        <option value="es">🇪🇸 Español</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="de">🇩🇪 Deutsch</option>
+      </select>
+    </div>
+
+    <div class="form-group checkbox-group">
+      <label>
+        <input type="checkbox" formControlName="lenguajeSencillo" />
+        {{ 'CONFIGURACION.LENGUAJE_SENCILLO' | translate }}
+      </label>
+    </div>
+
+    <div class="form-group checkbox-group">
+      <label>
+        <input type="checkbox" formControlName="altoContraste" />
+        {{ 'CONFIGURACION.ALTO_CONTRASTE' | translate }}
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="tamanoLetra">{{ 'CONFIGURACION.TAMANO_LETRA' | translate }}</label>
+      <select id="tamanoLetra" formControlName="tamanoLetra" class="form-control select-custom">
+        <option value="pequeno">{{ 'CONFIGURACION.PEQUENO' | translate }}</option>
+        <option value="normal">{{ 'CONFIGURACION.NORMAL' | translate }}</option>
+        <option value="grande">{{ 'CONFIGURACION.GRANDE' | translate }}</option>
+      </select>
+    </div>
+
+    <div class="btn-guardar-wrapper">
+      <button type="submit" class="btn-guardar">
+        {{ 'CONFIGURACION.GUARDAR' | translate }}
+      </button>
+    </div>
+  </form>
+</div>

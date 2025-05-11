@@ -1,34 +1,253 @@
+* {
+  font-family: Arial, sans-serif;
+}
+
+/* Error y cargando */
 .error {
   color: red;
   text-align: center;
-  font-weight: bold;
   margin-top: 20px;
 }
 
+.loader-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.loader {
+  width: 80px;
+  height: 80px;
+}
+
+/* Contenedor del curso */
 .curso-detalle {
   max-width: 900px;
   margin: 40px auto;
   padding: 24px;
-  background-color: #fff;
+  background: #fff;
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
-.curso-detalle h2 {
-  margin-bottom: 10px;
-  color: #2c3e50;
+/* Botones acciones */
+.curso-detalle .acciones {
+  margin-top: 20px;
   text-align: center;
 }
 
-.curso-detalle p {
-  margin: 4px 0;
-  font-size: 16px;
+.curso-detalle .acciones button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #0072ce;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+  min-width: 140px;
+  position: relative;
 }
 
-.curso-detalle hr {
-  margin: 20px 0;
+.curso-detalle .acciones button:hover {
+  background-color: #005fa3;
 }
 
-.curso-detalle div {
+.curso-detalle .acciones button.loading {
+  background-color: #444;
+  cursor: wait;
+}
+
+.curso-detalle .acciones button.loading::after {
+  content: '';
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.curso-detalle .acciones button.guardado {
+  background-color: #43a047;
+}
+
+.curso-detalle .acciones button.guardado::before {
+  content: '✔ ';
+}
+
+/* Spinner animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Título + iconos */
+.titulo-con-botones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.titulo-curso {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1e1e1e;
+  margin: 0;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.acciones-iconos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icono-audio,
+.icono-like {
+  width: 32px;
+  height: 32px;
+  opacity: 0.8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.icono-audio:hover,
+.icono-like:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.btn-escuchar,
+.btn-like {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Likes */
+.contador-likes {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+}
+
+.icono-cuanto-like {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+  vertical-align: middle;
+}
+
+.numero-likes {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  vertical-align: middle;
+}
+
+/* Vídeo */
+video.video-curso {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
+}
+
+/* Transcripción */
+.transcripcion-btn {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 16px;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.transcripcion-btn:hover {
+  background-color: #333;
+}
+
+.transcripcion-texto {
+  margin-top: 14px;
+  font-size: 18px;
   line-height: 1.7;
+  color: #222;
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .titulo-con-botones {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .titulo-curso {
+    font-size: 1.6rem;
+    width: 100%;
+    text-align: left;
+  }
+
+  .acciones-iconos {
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .curso-detalle {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .curso-detalle .acciones button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .icono-like,
+  .icono-audio {
+    width: 28px;
+    height: 28px;
+  }
+
+  .icono-cuanto-like {
+    width: 18px;
+    height: 18px;
+  }
+
+  .numero-likes {
+    font-size: 14px;
+  }
+
+  .contador-likes {
+    margin-left: 4px;
+    gap: 4px;
+  }
+
+  .transcripcion-texto {
+    font-size: 16px;
+    padding: 12px;
+  }
 }

@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService, LoginResponse } from '../../servicios/autenticacion.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { IdiomaService } from '../../servicios/idioma.service';
 
 @Component({
   selector: 'app-inicio-sesion',
@@ -25,7 +26,8 @@ export class InicioSesionComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private idiomaService: IdiomaService
   ) {
     this.formulario = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -41,12 +43,23 @@ export class InicioSesionComponent {
     const { email, password } = this.formulario.value;
     this.authService.login(email, password).subscribe({
       next: (res: LoginResponse) => {
+        const idioma = res.idioma || res.idiomaPredeterminado || 'es';
+
         const usuario = {
           email: res.email,
           nombre: res.nombre,
-          rol: res.rol
+          rol: res.rol,
+          subrol: res.subrol,
+          idioma: idioma,
+          preferenciasAccesibilidad: res.preferenciasAccesibilidad || {}
         };
+
         localStorage.setItem('usuario', JSON.stringify(usuario));
+        localStorage.setItem('idioma', idioma);
+
+        this.translate.use(idioma);
+        this.idiomaService.setIdioma(idioma);
+
         this.router.navigate(['/home']);
       },
       error: () => {

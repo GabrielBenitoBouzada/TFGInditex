@@ -8,7 +8,16 @@ export interface LoginResponse {
   email: string;
   nombre: string;
   rol: string;
+  subrol: string;
+  idioma?: string;
+  idiomaPredeterminado?: string;
+  preferenciasAccesibilidad?: {
+    lenguajeSencillo?: boolean;
+    altoContraste?: boolean;
+    tamanoLetra?: string;
+  };
 }
+
 
 @Injectable({
   providedIn: 'root'
